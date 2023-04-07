@@ -12,6 +12,7 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # It is used to create Models
 Base = declarative_base()
 
+
 def get_db():
     """
     Provide the DB instance

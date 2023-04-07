@@ -12,7 +12,7 @@ from schemas.joke_from import JokeFrom
 
 app = FastAPI(
     title="SquadMakers Test",
-    version="0.1.0"
+    version="0.1.1"
 )
 
 

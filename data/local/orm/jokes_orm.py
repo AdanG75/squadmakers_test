@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from sqlalchemy.orm import Session
 
 from data.local.models.jokes_db import DBJoke
@@ -5,7 +7,9 @@ from data.local.models.jokes_db import DBJoke
 
 def create_joke(db: Session, text_joke: str) -> DBJoke:
     new_joke = DBJoke(
-        joke=text_joke
+        joke=text_joke,
+        created_time=datetime.utcnow(),
+        dropped=False
     )
 
     try:
