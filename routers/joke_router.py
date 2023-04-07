@@ -59,34 +59,34 @@ async def save_joke(
 
 
 @router.patch(
-    path='/{id_joke}/',
+    path='/{number}/',
     status_code=status.HTTP_200_OK,
     response_model=Joke,
     tags=['jokes']
 )
 async def update_joke(
-        id_joke: int = Path(..., gt=0, lt=4294967296),
+        number: int = Path(..., gt=0, lt=4294967296),
         joke: str = Query(None, min_length=4, max_length=999),
         db: Session = Depends(get_db)
 ):
-    response = joke_controller.update_joke(db, id_joke, joke)
+    response = joke_controller.update_joke(db, number, joke)
 
     return response
 
 
 @router.delete(
-    path='/{id_joke}/',
+    path='/{number}/',
     status_code=status.HTTP_200_OK,
     response_model=BasicResponse,
     tags=['jokes']
 )
 async def delete_joke(
-        id_joke: int = Path(..., gt=0, lt=4294967296),
+        number: int = Path(..., gt=0, lt=4294967296),
         db: Session = Depends(get_db)
 ):
-    result: bool = joke_controller.delete_joke(db, id_joke)
+    result: bool = joke_controller.delete_joke(db, number)
 
     return BasicResponse(
-        operation="Deleted joke with id: {}".format(id_joke),
+        operation="Deleted joke with id: {}".format(number),
         successful=result
     )
