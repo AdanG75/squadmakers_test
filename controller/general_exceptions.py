@@ -15,3 +15,8 @@ USER_ERROR = HTTPException(
     status_code=status.HTTP_400_BAD_REQUEST,
     detail="Request not valid. Check it, please"
 )
+
+NEGATIVE_NUMBER = HTTPException(
+    status_code=status.HTTP_400_BAD_REQUEST,
+    detail="Only positive integer numbers are allowed to obtain least common multiple"
+)
