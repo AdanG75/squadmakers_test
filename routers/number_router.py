@@ -3,7 +3,7 @@ from typing import List
 from fastapi import APIRouter, Path, Query
 from starlette import status
 
-from controller.number_controller import get_lcm_of_a_integer_list, add_one
+from controller.number_controller import get_lcm_of_a_integer_list, add_one as add_one_c
 from schemas.number_schema import NumberResponse
 
 router = APIRouter(
@@ -39,7 +39,7 @@ async def get_least_common_multiple(
 async def add_one(
         number: int = Path(...)
 ):
-    result: int = add_one(number)
+    result: int = add_one_c(number)
 
     return NumberResponse(
         operation="Add one",
