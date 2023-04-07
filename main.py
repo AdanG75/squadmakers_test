@@ -1,11 +1,11 @@
 from fastapi import FastAPI
 
 from core.settings import charge_settings
-from routers import joke_router
+from routers import joke_router, number_router
 
 app = FastAPI(
     title="SquadMakers Test",
-    version="0.2.0"
+    version="0.3.0"
 )
 
 
@@ -16,6 +16,7 @@ async def startup_event():
 
 # Adding routers
 app.include_router(router=joke_router.router)
+app.include_router(router=number_router.router)
 
 
 @app.get(
