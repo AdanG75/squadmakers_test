@@ -20,3 +20,9 @@ NEGATIVE_NUMBER = HTTPException(
     status_code=status.HTTP_400_BAD_REQUEST,
     detail="Only positive integer numbers are allowed to obtain least common multiple"
 )
+
+
+LIST_TOO_BIG = HTTPException(
+    status_code=status.HTTP_400_BAD_REQUEST,
+    detail="List too big, Maximum permitted length: 99"
+)

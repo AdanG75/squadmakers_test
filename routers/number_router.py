@@ -18,9 +18,12 @@ router = APIRouter(
     response_model=NumberResponse
 )
 async def get_least_common_multiple(
-        numbers: List[int] = Query(None, min_length=1, max_length=99)
+        numbers: List[int] = Query(None)
 ):
-    result: int = get_lcm_of_a_integer_list(numbers)
+    if numbers is not None and len(numbers) > 0:
+        result: int = get_lcm_of_a_integer_list(numbers)
+    else:
+        result: int = 0
 
     return NumberResponse(
         operation="Least Common Multiple",
