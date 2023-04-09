@@ -52,7 +52,7 @@ def test_update_joke():
 
 
 def test_delete_joke():
-    deleted_joke = 8
+    deleted_joke = 10
     response = client.delete('/jokes/{}/'.format(deleted_joke))
     assert response.status_code == 200
     assert response.json() == {
@@ -62,6 +62,6 @@ def test_delete_joke():
 
 
 def test_not_found_joke():
-    id_joke = 8
+    id_joke = 10
     response = client.patch('/jokes/{}/'.format(id_joke))
     assert response.status_code == 404
