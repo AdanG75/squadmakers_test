@@ -38,3 +38,8 @@ Execute the next command in your terminal at root directory:
 
 **Note:** Set ID_JOKE_TO_TEST = 1 (test_joke_router.py) if not values have been saved into DB
 and you want to run the tests.
+
+
+## Test's answers
+
+The test's answers can be found into the file **Entregables.md** (root directory).
