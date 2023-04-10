@@ -3,6 +3,9 @@ from fastapi.testclient import TestClient
 from main import app
 
 
+ID_JOKE_TO_TEST = 13
+
+
 client = TestClient(app)
 
 
@@ -42,17 +45,18 @@ def test_get_random_joke_422_error():
 
 def test_update_joke():
     updated_joke = 'This a updated joke UwU'
-    response = client.patch('/jokes/1/?joke={}'.format(updated_joke))
+    updated_joke_id = ID_JOKE_TO_TEST
+    response = client.patch('/jokes/{}/?joke={}'.format(updated_joke_id, updated_joke))
     assert response.status_code == 200
     assert response.json() == {
-        "id": 1,
+        "id": updated_joke_id,
         "joke": updated_joke,
         "joke_from": "User"
     }
 
 
 def test_delete_joke():
-    deleted_joke = 10
+    deleted_joke = ID_JOKE_TO_TEST
     response = client.delete('/jokes/{}/'.format(deleted_joke))
     assert response.status_code == 200
     assert response.json() == {
@@ -62,6 +66,6 @@ def test_delete_joke():
 
 
 def test_not_found_joke():
-    id_joke = 10
+    id_joke = ID_JOKE_TO_TEST
     response = client.patch('/jokes/{}/'.format(id_joke))
     assert response.status_code == 404
