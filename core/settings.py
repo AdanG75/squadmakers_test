@@ -3,7 +3,7 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-IS_DEPLOYED: bool = False
+IS_DEPLOYED: bool = True
 
 
 class Settings(object):
@@ -19,11 +19,11 @@ class Settings(object):
             env_path = Path('.') / '.env'
             load_dotenv(dotenv_path=env_path)
 
-            self.__POSTGRES_USER = os.environ.get("POSTGRES_USER")
-            self.__POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
-            self.__POSTGRES_DB = os.environ.get("POSTGRES_DB")
-            self.__POSTGRES_SERVER = os.environ.get("POSTGRES_SERVER")
-            self.__POSTGRES_PORT = int(os.environ.get("POSTGRES_PORT"))
+        self.__POSTGRES_USER = os.environ.get("POSTGRES_USER")
+        self.__POSTGRES_PASSWORD = os.environ.get("POSTGRES_PASSWORD")
+        self.__POSTGRES_DB = os.environ.get("POSTGRES_DB")
+        self.__POSTGRES_SERVER = os.environ.get("POSTGRES_SERVER")
+        self.__POSTGRES_PORT = int(os.environ.get("POSTGRES_PORT"))
 
     def __new__(cls):
         if not hasattr(cls, 'instance'):
