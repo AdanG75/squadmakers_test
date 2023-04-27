@@ -4,7 +4,7 @@ Test to apply to a squadmakers's job
 
 ## APP's direction
 
-The application can be visited in the next URL:
+The application can be visited in the next URL (currently not available):
 
     https://polar-tundra-92156.herokuapp.com/docs/
 
